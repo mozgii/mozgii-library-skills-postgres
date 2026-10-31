@@ -1,0 +1,14 @@
+{
+  "include": [
+    "library.json",
+    "ship.json",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "docs/**",
+    "questions.json",
+    "versions.json",
+    "sources.json"
+  ],
+  "exclude": []
+}

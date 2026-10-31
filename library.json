@@ -1,0 +1,13 @@
+{
+  "name": "postgres",
+  "title": "PostgreSQL skills",
+  "description": "Claude skills for PostgreSQL 18: install and deploy, SQL and internals, Python and seven other languages, performance, high availability, scale, security and operations.",
+  "author": "MOZGII, Inc.",
+  "url": "https://mozgii.com",
+  "coauthor": "",
+  "coauthorUrl": "",
+  "version": "1.3.0",
+  "selftest": {
+    "minimum": 0.85
+  }
+}

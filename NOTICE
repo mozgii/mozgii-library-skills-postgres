@@ -1,0 +1,27 @@
+PostgreSQL skills
+Copyright 2026 MOZGII, Inc. (https://mozgii.com/)
+
+Every text in this library is written by MOZGII. The sources below were read as context for facts; nothing was copied from them.
+
+- Supabase, https://github.com/supabase/agent-skills at c9be0e931b7930f7d02126d04774d904c381e7d7, MIT
+- Timescale, Inc., d/b/a Tiger Data, https://github.com/timescale/pg-aiguide at 5d3b76b5c986693b30753828b404aa66ba34c31a, Apache-2.0
+- The PostgreSQL Global Development Group, https://github.com/postgres/postgres at 724edf9bde9d356724ad384a2e196edc3c9f80f7, PostgreSQL
+- pgvector contributors, https://github.com/pgvector/pgvector at f37c13f68b57d2c3472b2214fbcff699d6d34876, PostgreSQL
+- Timescale, Inc., d/b/a Tiger Data, https://github.com/timescale/pg_textsearch at fa142d049d08eac45a263f5abc250c8877ae076e, PostgreSQL
+- Timescale, Inc., d/b/a Tiger Data, https://github.com/timescale/pgvectorscale at 9d9851ce9966f01cdbbdc80e510d4938e3cd26bf, PostgreSQL
+- Rasmus Porsager and contributors, https://github.com/porsager/postgres at 570be764d96c8c13e6a1a262103bf60974571b67, Unlicense
+- The PostGIS project, https://github.com/postgis/postgis at 1fdbb1cbb0e076816be06c401c5a5a2cf2c487f9, GPL-2.0-or-later
+- Supabase, https://github.com/supabase/supabase at 552312507f38f1852db23b292e023c36cddc40f3, Apache-2.0
+- Timescale, Inc., d/b/a Tiger Data, https://www.tigerdata.com/docs/reference/timescaledb/hypertables/create_hypertable read 2026-10-30, not stated on the page; facts only
+- The PostgreSQL Global Development Group, https://www.postgresql.org/support/versioning/ read 2026-10-30, PostgreSQL
+- The PgBouncer project, https://github.com/pgbouncer/pgbouncer at bb60c8c94bd6e9fb48f6fcf62cc1ec649b3ab6c6, ISC
+- pgBackRest contributors, https://github.com/pgbackrest/pgbackrest at 840ffebf23a34342d849af7a9aebee97da94b335, MIT
+- Cloudflare, Inc., https://developers.cloudflare.com/hyperdrive/ read 2026-10-31, CC-BY-4.0 (docs); facts only
+- OpenNext, https://opennext.js.org/cloudflare/howtos/db read 2026-10-31, not stated on the page; facts only
+- The Npgsql project, https://www.npgsql.org/doc/types/basic.html read 2026-10-31, PostgreSQL
+- The PostGIS project, https://postgis.net/2026/10/PostGIS-3.7.0/ read 2026-10-31, CC BY-SA 3.0 (site); facts only
+- The CloudNativePG Contributors, https://github.com/cloudnative-pg/cloudnative-pg at 2a35abb4628f209d149825ef3c38011e0701ff2f, Apache-2.0
+- The CloudNativePG Contributors, https://github.com/cloudnative-pg/plugin-barman-cloud at 6216b7dd552f389952d3de77712d9522a79d9548, Apache-2.0
+- Crunchy Data Solutions, Inc., https://github.com/CrunchyData/postgres-operator at 0fbac3062d649b2b5fadde4e00f17bad250c0052, Apache-2.0
+- Zalando SE, https://github.com/zalando/postgres-operator at 80b7a074ada5221dc5eeac487c19faf810eb9cfe, MIT
+- The CloudNativePG Contributors, https://github.com/cloudnative-pg/postgres-containers at c01b92e74c707bf91e7c133113c53590c40202a6, Apache-2.0

@@ -1,0 +1,782 @@
+{
+ "packages": [
+  {
+   "name": "postgresql",
+   "ecosystem": "postgresql",
+   "version": "18.6",
+   "checked": "2026-10-30",
+   "note": "https://www.postgresql.org/support/versioning/; 19 is at RC 1 (15 October 2026); 14 ends on 12 November 2026"
+  },
+  {
+   "name": "pg",
+   "ecosystem": "npm",
+   "version": "8.23.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "@types/pg",
+   "ecosystem": "npm",
+   "version": "8.23.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "postgres",
+   "ecosystem": "npm",
+   "version": "4.0.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "@prisma/client",
+   "ecosystem": "npm",
+   "version": "7.10.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "@prisma/adapter-pg",
+   "ecosystem": "npm",
+   "version": "7.10.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "drizzle-orm",
+   "ecosystem": "npm",
+   "version": "0.45.4",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "drizzle-kit",
+   "ecosystem": "npm",
+   "version": "0.31.11",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "kysely",
+   "ecosystem": "npm",
+   "version": "0.29.7",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "kysely-codegen",
+   "ecosystem": "npm",
+   "version": "0.20.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "@neondatabase/serverless",
+   "ecosystem": "npm",
+   "version": "1.2.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgvector",
+   "ecosystem": "npm",
+   "version": "0.3.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "next",
+   "ecosystem": "npm",
+   "version": "16.4.3",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "wrangler",
+   "ecosystem": "npm",
+   "version": "4.156.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pg-boss",
+   "ecosystem": "npm",
+   "version": "12.38.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pg-copy-streams",
+   "ecosystem": "npm",
+   "version": "7.0.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pg-cursor",
+   "ecosystem": "npm",
+   "version": "2.22.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pg-query-stream",
+   "ecosystem": "npm",
+   "version": "4.17.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pg-connection-string",
+   "ecosystem": "npm",
+   "version": "2.14.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "testcontainers",
+   "ecosystem": "npm",
+   "version": "12.2.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "@testcontainers/postgresql",
+   "ecosystem": "npm",
+   "version": "12.2.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "@electric-sql/pglite",
+   "ecosystem": "npm",
+   "version": "0.5.13",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "typescript",
+   "ecosystem": "npm",
+   "version": "7.0.2",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pg-native",
+   "ecosystem": "npm",
+   "version": "3.9.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "prisma",
+   "ecosystem": "npm",
+   "version": "7.10.1",
+   "checked": "2026-10-30",
+   "note": "stable line; npm's latest tag points at 8.0.0-rc.29, a pre-release"
+  },
+  {
+   "name": "graphile-worker",
+   "ecosystem": "npm",
+   "version": "0.18.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "psycopg",
+   "ecosystem": "pypi",
+   "version": "3.3.6",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "psycopg-pool",
+   "ecosystem": "pypi",
+   "version": "3.3.3",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "psycopg2",
+   "ecosystem": "pypi",
+   "version": "2.9.13",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "psycopg2-binary",
+   "ecosystem": "pypi",
+   "version": "2.9.13",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "asyncpg",
+   "ecosystem": "pypi",
+   "version": "0.32.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "SQLAlchemy",
+   "ecosystem": "pypi",
+   "version": "2.1.6",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "alembic",
+   "ecosystem": "pypi",
+   "version": "1.20.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "Django",
+   "ecosystem": "pypi",
+   "version": "6.1.2",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pandas",
+   "ecosystem": "pypi",
+   "version": "3.1.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "polars",
+   "ecosystem": "pypi",
+   "version": "2.1.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pyarrow",
+   "ecosystem": "pypi",
+   "version": "26.0.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "adbc-driver-postgresql",
+   "ecosystem": "pypi",
+   "version": "1.13.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "duckdb",
+   "ecosystem": "pypi",
+   "version": "2.0.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "patroni",
+   "ecosystem": "pypi",
+   "version": "4.1.5",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgvector",
+   "ecosystem": "pypi",
+   "version": "0.5.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgcli",
+   "ecosystem": "pypi",
+   "version": "4.7.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgxnclient",
+   "ecosystem": "pypi",
+   "version": "1.3.2",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "testcontainers",
+   "ecosystem": "pypi",
+   "version": "4.15.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pytest-postgresql",
+   "ecosystem": "pypi",
+   "version": "9.1.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "connectorx",
+   "ecosystem": "pypi",
+   "version": "0.4.6",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "greenlet",
+   "ecosystem": "pypi",
+   "version": "3.5.6",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pg_activity",
+   "ecosystem": "pypi",
+   "version": "3.6.2",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "etcd3",
+   "ecosystem": "pypi",
+   "version": "0.12.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "sqlx",
+   "ecosystem": "crates",
+   "version": "0.9.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "sqlx-cli",
+   "ecosystem": "crates",
+   "version": "0.9.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "tokio-postgres",
+   "ecosystem": "crates",
+   "version": "0.7.18",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "deadpool-postgres",
+   "ecosystem": "crates",
+   "version": "0.14.2",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "diesel",
+   "ecosystem": "crates",
+   "version": "2.3.14",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "sea-orm",
+   "ecosystem": "crates",
+   "version": "2.0.4",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgrx",
+   "ecosystem": "crates",
+   "version": "0.19.3",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "cargo-pgrx",
+   "ecosystem": "crates",
+   "version": "0.19.3",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgvector",
+   "ecosystem": "crates",
+   "version": "0.4.2",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "jackc/pgx",
+   "ecosystem": "github",
+   "version": "5.11.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "riverqueue/river",
+   "ecosystem": "github",
+   "version": "0.50.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "flyway/flyway",
+   "ecosystem": "github",
+   "version": "13.12.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "liquibase/liquibase",
+   "ecosystem": "github",
+   "version": "5.0.4",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "jOOQ/jOOQ",
+   "ecosystem": "github",
+   "version": "3.21.9",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "spring-projects/spring-boot",
+   "ecosystem": "github",
+   "version": "4.1.2",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "DapperLib/Dapper",
+   "ecosystem": "github",
+   "version": "2.1.89",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "rails/rails",
+   "ecosystem": "github",
+   "version": "8.1.4",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "laravel/framework",
+   "ecosystem": "github",
+   "version": "13.39.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "rails/solid_queue",
+   "ecosystem": "github",
+   "version": "1.7.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "doctrine/dbal",
+   "ecosystem": "github",
+   "version": "4.5.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "doctrine/orm",
+   "ecosystem": "github",
+   "version": "3.7.6",
+   "checked": "2026-10-31"
+  },
+  {
+   "name": "oven-sh/bun",
+   "ecosystem": "github",
+   "version": "1.4.4",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "denoland/deno",
+   "ecosystem": "github",
+   "version": "2.9.8",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "postgresml/pgcat",
+   "ecosystem": "github",
+   "version": "0.2.5",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "cybertec-postgresql/pgwatch",
+   "ecosystem": "github",
+   "version": "6.1.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "supabase/supavisor",
+   "ecosystem": "github",
+   "version": "2.9.13",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "grafana/grafana",
+   "ecosystem": "github",
+   "version": "13.3.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "etcd-io/etcd",
+   "ecosystem": "github",
+   "version": "3.7.3",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgbouncer/pgbouncer",
+   "ecosystem": "github",
+   "version": "1.26.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgbackrest/pgbackrest",
+   "ecosystem": "github",
+   "version": "2.60.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "citusdata/citus",
+   "ecosystem": "github",
+   "version": "14.3.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "timescale/timescaledb",
+   "ecosystem": "github",
+   "version": "2.31.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "timescale/timescaledb-toolkit",
+   "ecosystem": "github",
+   "version": "1.26.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "timescale/pgvectorscale",
+   "ecosystem": "github",
+   "version": "0.9.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "timescale/pg_textsearch",
+   "ecosystem": "github",
+   "version": "1.5.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "paradedb/paradedb",
+   "ecosystem": "github",
+   "version": "0.26.4",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgmq/pgmq",
+   "ecosystem": "github",
+   "version": "1.13.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgpartman/pg_partman",
+   "ecosystem": "github",
+   "version": "5.5.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgaudit/pgaudit",
+   "ecosystem": "github",
+   "version": "18.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "citusdata/pg_cron",
+   "ecosystem": "github",
+   "version": "1.6.8",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "cybertec-postgresql/pg_squeeze",
+   "ecosystem": "github",
+   "version": "1.9.4",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "wal-g/wal-g",
+   "ecosystem": "github",
+   "version": "3.0.9",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "prometheus-community/postgres_exporter",
+   "ecosystem": "github",
+   "version": "0.20.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "cloudnative-pg/cloudnative-pg",
+   "ecosystem": "github",
+   "version": "1.30.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "darold/pgbadger",
+   "ecosystem": "github",
+   "version": "13.2",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgdogdev/pgdog",
+   "ecosystem": "github",
+   "version": "0.1.62",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "sqitchers/sqitch",
+   "ecosystem": "github",
+   "version": "1.6.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "sqlc-dev/sqlc",
+   "ecosystem": "github",
+   "version": "1.31.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pressly/goose",
+   "ecosystem": "github",
+   "version": "3.29.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "golang-migrate/migrate",
+   "ecosystem": "github",
+   "version": "4.20.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "amacneil/dbmate",
+   "ecosystem": "github",
+   "version": "2.37.0",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "zalando/postgres-operator",
+   "ecosystem": "github",
+   "version": "2.0.3",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "CrunchyData/postgres-operator",
+   "ecosystem": "github-tag",
+   "version": "6.0.3",
+   "checked": "2026-10-31",
+   "note": "6.0.3 is tagged; GitHub releases stop at 6.0.2, so versions.py reads it as a tag"
+  },
+  {
+   "name": "npgsql/npgsql",
+   "ecosystem": "github",
+   "version": "10.0.3",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgjdbc/pgjdbc",
+   "ecosystem": "github",
+   "version": "42.7.14",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "npgsql/efcore.pg",
+   "ecosystem": "github",
+   "version": "10.0.3",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "crunchydata/pg_parquet",
+   "ecosystem": "github",
+   "version": "0.5.1",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "percona/pg_tde",
+   "ecosystem": "github",
+   "version": "2.2.2",
+   "checked": "2026-10-30"
+  },
+  {
+   "name": "pgvector/pgvector",
+   "ecosystem": "github-tag",
+   "version": "0.8.7",
+   "checked": "2026-10-30",
+   "note": "versions.py reads GitHub releases only; this repo publishes tags"
+  },
+  {
+   "name": "reorg/pg_repack",
+   "ecosystem": "github-tag",
+   "version": "1.5.3",
+   "checked": "2026-10-30",
+   "note": "versions.py reads GitHub releases only; this repo publishes tags"
+  },
+  {
+   "name": "theory/pgtap",
+   "ecosystem": "github-tag",
+   "version": "1.3.4",
+   "checked": "2026-10-30",
+   "note": "versions.py reads GitHub releases only; this repo publishes tags"
+  },
+  {
+   "name": "eulerto/wal2json",
+   "ecosystem": "github-tag",
+   "version": "2.7",
+   "checked": "2026-10-30",
+   "note": "versions.py reads GitHub releases only; this repo publishes tags"
+  },
+  {
+   "name": "EnterpriseDB/barman",
+   "ecosystem": "github-tag",
+   "version": "3.20.1",
+   "checked": "2026-10-30",
+   "note": "versions.py reads GitHub releases only; this repo publishes tags"
+  },
+  {
+   "name": "pgvector/pgvector-go",
+   "ecosystem": "github-tag",
+   "version": "0.4.1",
+   "checked": "2026-10-30",
+   "note": "versions.py reads GitHub releases only; this repo publishes tags"
+  },
+  {
+   "name": "debezium/debezium",
+   "ecosystem": "github-tag",
+   "version": "3.7.0",
+   "checked": "2026-10-30",
+   "note": "3.7.0.Final; versions.py reads GitHub releases only; this repo publishes tags"
+  },
+  {
+   "name": "postgis/postgis",
+   "ecosystem": "github-tag",
+   "version": "3.7.0",
+   "checked": "2026-10-31",
+   "note": "released 2026-10-30, announced on postgis.net; PostgreSQL 14 to 19; the skill examples ran on 3.7.0"
+  },
+  {
+   "name": "haproxy",
+   "ecosystem": "haproxy",
+   "version": "3.4.7",
+   "checked": "2026-10-30",
+   "note": "https://www.haproxy.org/download/3.4/src/; versions.py has no reader for this site"
+  },
+  {
+   "name": "org.postgresql:r2dbc-postgresql",
+   "ecosystem": "maven",
+   "version": "1.1.3",
+   "checked": "2026-10-30",
+   "note": "versions.py has no reader for this registry; checked on the registry itself"
+  },
+  {
+   "name": "com.zaxxer:HikariCP",
+   "ecosystem": "maven",
+   "version": "7.1.0",
+   "checked": "2026-10-30",
+   "note": "versions.py has no reader for this registry; checked on the registry itself"
+  },
+  {
+   "name": "org.hibernate.orm:hibernate-core",
+   "ecosystem": "maven",
+   "version": "7.4.14",
+   "checked": "2026-10-30",
+   "note": "latest Final on Maven Central; 8.0.0.Beta4 is a pre-release; versions.py has no reader for this registry; checked on the registry itself"
+  },
+  {
+   "name": "org.testcontainers:testcontainers-postgresql",
+   "ecosystem": "maven",
+   "version": "2.0.5",
+   "checked": "2026-10-30",
+   "note": "versions.py has no reader for this registry; checked on the registry itself"
+  },
+  {
+   "name": "com.pgvector:pgvector",
+   "ecosystem": "maven",
+   "version": "0.1.6",
+   "checked": "2026-10-30",
+   "note": "versions.py has no reader for this registry; checked on the registry itself"
+  },
+  {
+   "name": "Microsoft.EntityFrameworkCore.Design",
+   "ecosystem": "nuget",
+   "version": "10.0.14",
+   "checked": "2026-10-30",
+   "note": "versions.py has no reader for this registry; checked on the registry itself"
+  },
+  {
+   "name": "Pgvector",
+   "ecosystem": "nuget",
+   "version": "0.3.2",
+   "checked": "2026-10-30",
+   "note": "versions.py has no reader for this registry; checked on the registry itself"
+  },
+  {
+   "name": "pg",
+   "ecosystem": "rubygems",
+   "version": "1.7.0",
+   "checked": "2026-10-30",
+   "note": "versions.py has no reader for this registry; checked on the registry itself"
+  },
+  {
+   "name": "strong_migrations",
+   "ecosystem": "rubygems",
+   "version": "2.8.0",
+   "checked": "2026-10-30",
+   "note": "versions.py has no reader for this registry; checked on the registry itself"
+  },
+  {
+   "name": "sequel",
+   "ecosystem": "rubygems",
+   "version": "5.109.0",
+   "checked": "2026-10-30",
+   "note": "versions.py has no reader for this registry; checked on the registry itself"
+  }
+ ]
+}

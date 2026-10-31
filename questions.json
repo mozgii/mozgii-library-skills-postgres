@@ -1,0 +1,997 @@
+[
+  {
+    "question": "Should my primary key be serial or something else in Postgres?",
+    "answer": "bigint GENERATED ALWAYS AS IDENTITY",
+    "file": "v18/sql/postgres-schema-design/SKILL.md"
+  },
+  {
+    "question": "Why is deleting a customer so slow when its orders point to it?",
+    "answer": "Index every foreign key column",
+    "file": "v18/sql/postgres-schema-design/SKILL.md"
+  },
+  {
+    "question": "timestamp or timestamptz, what does Postgres actually store?",
+    "answer": "stores UTC and converts on output",
+    "file": "v18/sql/postgres-schema-design/references/data-types.md"
+  },
+  {
+    "question": "My query with payload->>'event' = 'x' ignores the GIN index on the jsonb column",
+    "answer": "cannot use a GIN index",
+    "file": "v18/sql/postgres-schema-design/references/jsonb.md"
+  },
+  {
+    "question": "How do I throw away old months of event data without a giant DELETE?",
+    "answer": "DETACH PARTITION",
+    "file": "v18/sql/postgres-schema-design/references/partitioning.md"
+  },
+  {
+    "question": "Insert a row or update it if the email already exists",
+    "answer": "ON CONFLICT (email) DO UPDATE",
+    "file": "v18/sql/postgres-sql-patterns/SKILL.md"
+  },
+  {
+    "question": "Page 1000 of my list takes forever, how should I paginate?",
+    "answer": "Keyset (seek) pagination",
+    "file": "v18/sql/postgres-sql-patterns/SKILL.md"
+  },
+  {
+    "question": "Which column should come first in a multi-column index?",
+    "answer": "Put columns tested with",
+    "file": "v18/performance/postgres-indexing/SKILL.md"
+  },
+  {
+    "question": "Add an index to a busy production table without blocking inserts",
+    "answer": "CREATE INDEX CONCURRENTLY orders_status_idx",
+    "file": "v18/performance/postgres-indexing/SKILL.md"
+  },
+  {
+    "question": "Is there a query to find indexes nobody ever uses?",
+    "answer": "Unused indexes (no scans since the last stats reset",
+    "file": "v18/performance/postgres-indexing/scripts/index-health.sql"
+  },
+  {
+    "question": "How do I find which queries take the most database time overall?",
+    "answer": "Rank queries by total time in",
+    "file": "v18/performance/postgres-query-performance/SKILL.md"
+  },
+  {
+    "question": "The query is fast in psql but slow when my app runs it",
+    "answer": "may switch to a generic plan",
+    "file": "v18/performance/postgres-query-performance/SKILL.md"
+  },
+  {
+    "question": "What does Batches greater than 1 on a Hash Join mean?",
+    "answer": "the hash spilled to disk",
+    "file": "v18/performance/postgres-query-performance/references/explain-nodes.md"
+  },
+  {
+    "question": "Which statements are writing the most temp files?",
+    "answer": "Top 10 by temp files written",
+    "file": "v18/performance/postgres-query-performance/scripts/top-queries.sql"
+  },
+  {
+    "question": "A small ALTER TABLE froze the whole site, how do I stop that?",
+    "answer": "makes the migration give up quickly",
+    "file": "v18/sql/postgres-schema-migrations/SKILL.md"
+  },
+  {
+    "question": "How do I rename a column without downtime?",
+    "answer": "Expand and contract splits a breaking change",
+    "file": "v18/sql/postgres-schema-migrations/SKILL.md"
+  },
+  {
+    "question": "Does VALIDATE CONSTRAINT block writes to the table?",
+    "answer": "SHARE UPDATE EXCLUSIVE",
+    "file": "v18/sql/postgres-schema-migrations/references/ddl-lock-levels.md"
+  },
+  {
+    "question": "Several workers pull jobs from one table, how do I stop two taking the same job?",
+    "answer": "FOR UPDATE SKIP LOCKED",
+    "file": "v18/sql/postgres-transactions-locking/SKILL.md"
+  },
+  {
+    "question": "I keep getting could not serialize access errors",
+    "answer": "Retry the whole transaction from the start",
+    "file": "v18/sql/postgres-transactions-locking/SKILL.md"
+  },
+  {
+    "question": "Script to see who is blocking whom and sessions idle in transaction",
+    "answer": "Waiting sessions and their blockers",
+    "file": "v18/sql/postgres-transactions-locking/scripts/blocking-locks.sql"
+  },
+  {
+    "question": "Restore just one table from last night's dump",
+    "answer": "--clean --if-exists -L toc.txt app.dump",
+    "file": "v18/operations/postgres-backup-restore/SKILL.md"
+  },
+  {
+    "question": "Someone ran a bad DELETE at 9:41, can I get the database back to just before it?",
+    "answer": "recovery_target_time = '2026-11-28 09:41:00+00'",
+    "file": "v18/operations/postgres-backup-restore/SKILL.md"
+  },
+  {
+    "question": "Set up pgbackrest to keep backups in an S3 bucket",
+    "answer": "repo1-s3-bucket=acme-pg-backups",
+    "file": "v18/operations/postgres-backup-restore/references/pgbackrest.md"
+  },
+  {
+    "question": "A script that checks a pg_dump file really restores",
+    "answer": "Restore drill for a logical backup",
+    "file": "v18/operations/postgres-backup-restore/scripts/restore-drill.sh"
+  },
+  {
+    "question": "The primary's disk is filling with WAL because a replica is gone",
+    "answer": "max_slot_wal_keep_size",
+    "file": "v18/operations/postgres-replication-ha/SKILL.md"
+  },
+  {
+    "question": "Upgrade to a new major version with only seconds of downtime",
+    "answer": "Major upgrade with logical replication",
+    "file": "v18/operations/postgres-replication-ha/references/logical-replication.md"
+  },
+  {
+    "question": "FATAL too many clients already",
+    "answer": "sorry, too many clients already",
+    "file": "v18/performance/postgres-connection-pooling/SKILL.md"
+  },
+  {
+    "question": "How does pgbouncer check passwords without a superuser account?",
+    "answer": "auth_query with a SECURITY DEFINER function",
+    "file": "v18/performance/postgres-connection-pooling/references/pgbouncer-config.md"
+  },
+  {
+    "question": "Tables created by migrations are not readable by the app user",
+    "answer": "ALTER DEFAULT PRIVILEGES FOR ROLE app_owner IN SCHEMA app",
+    "file": "v18/security/postgres-security-roles/SKILL.md"
+  },
+  {
+    "question": "Make sure one tenant can never see another tenant's rows",
+    "answer": "Row-level security (RLS) adds a filter",
+    "file": "v18/security/postgres-security-roles/SKILL.md"
+  },
+  {
+    "question": "My RLS policies make every query slow",
+    "answer": "Wrap function calls in a scalar subquery",
+    "file": "v18/security/postgres-security-roles/references/row-level-security.md"
+  },
+  {
+    "question": "SQL script that creates owner, migrator, read-write and read-only roles",
+    "answer": "Least-privilege role setup for one application database",
+    "file": "v18/security/postgres-security-roles/scripts/roles-setup.sql"
+  },
+  {
+    "question": "HNSW or IVFFlat for my embeddings?",
+    "answer": "HNSW is the default choice",
+    "file": "v18/extensions/postgres-vector-search/SKILL.md"
+  },
+  {
+    "question": "Vector search with a WHERE filter returns fewer rows than my LIMIT",
+    "answer": "hnsw.iterative_scan = relaxed_order",
+    "file": "v18/extensions/postgres-vector-search/SKILL.md"
+  },
+  {
+    "question": "Combine keyword search and semantic search results into one ranking",
+    "answer": "RRF scores each result by",
+    "file": "v18/extensions/postgres-vector-search/references/hybrid-search.md"
+  },
+  {
+    "question": "Search box input with quotes and minus signs breaks my tsquery",
+    "answer": "User input must go through a parser that never raises a syntax error",
+    "file": "v18/sql/postgres-full-text-search/SKILL.md"
+  },
+  {
+    "question": "Autovacuum never gets to my 100 million row table",
+    "answer": "autovacuum_vacuum_scale_factor = 0.01",
+    "file": "v18/operations/postgres-operations/SKILL.md"
+  },
+  {
+    "question": "The database stopped accepting writes because of transaction ID wraparound",
+    "answer": "database is not accepting commands that assign new transaction IDs",
+    "file": "v18/operations/postgres-operations/SKILL.md"
+  },
+  {
+    "question": "How big should shared_buffers be?",
+    "answer": "25% of RAM",
+    "file": "v18/operations/postgres-operations/references/configuration.md"
+  },
+  {
+    "question": "pg_upgrade to 18 complains about data checksums",
+    "answer": "requires both clusters to match",
+    "file": "v18/operations/postgres-operations/references/upgrades.md"
+  },
+  {
+    "question": "Something is holding back vacuum, how do I find it?",
+    "answer": "What holds back vacuum",
+    "file": "v18/operations/postgres-operations/references/monitoring-queries.md"
+  },
+  {
+    "question": "A daily SQL check of server health",
+    "answer": "Daily health check for PostgreSQL 17 and later",
+    "file": "v18/operations/postgres-operations/scripts/health-check.sql"
+  },
+  {
+    "question": "Why do my bigint ids come back as strings in Node?",
+    "answer": "is returned as a string by design",
+    "file": "v18/clients/postgres-app-drivers/SKILL.md"
+  },
+  {
+    "question": "My Node process crashes when the database restarts",
+    "answer": "event on the pool crashes the process",
+    "file": "v18/clients/postgres-app-drivers/references/node.md"
+  },
+  {
+    "question": "Connect Prisma 7 to Postgres with the pg adapter",
+    "answer": "new PrismaPg(",
+    "file": "v18/clients/postgres-app-drivers/references/prisma.md"
+  },
+  {
+    "question": "Connection pool setup for Postgres in Go",
+    "answer": "pgxpool.NewWithConfig",
+    "file": "v18/clients/postgres-app-drivers/references/go-java-dotnet-rust.md"
+  },
+  {
+    "question": "Is psycopg2 still the right Python driver?",
+    "answer": "psycopg2 is in maintenance",
+    "file": "v18/python/postgres-python/SKILL.md"
+  },
+  {
+    "question": "PGOPTIONS in the environment made my Python connection read-only",
+    "answer": "and name every field",
+    "file": "v18/python/postgres-python/SKILL.md"
+  },
+  {
+    "question": "Alembic autogenerate index with CONCURRENTLY",
+    "answer": "autocommit_block",
+    "file": "v18/python/postgres-python/references/sqlalchemy-alembic.md"
+  },
+  {
+    "question": "Each pytest test should leave no rows behind",
+    "answer": "One transaction per test, rolled back",
+    "file": "v18/python/postgres-python/references/testing.md"
+  },
+  {
+    "question": "Bundle Postgres inside my desktop app",
+    "answer": "ship the engine inside an app",
+    "file": "v18/operations/postgres-local-cluster/SKILL.md"
+  },
+  {
+    "question": "My app crashed and now Postgres says the lock file already exists",
+    "answer": "The app starts a second server or refuses to start",
+    "file": "v18/operations/postgres-local-cluster/SKILL.md"
+  },
+  {
+    "question": "Weekly restore test for the app's local database",
+    "answer": "The drill restores the latest chain into a scratch cluster",
+    "file": "v18/operations/postgres-local-cluster/references/backup-restore.md"
+  },
+  {
+    "question": "Running the app's local Postgres on Windows without peer auth",
+    "answer": "no peer on Windows",
+    "file": "v18/operations/postgres-local-cluster/references/upgrade-ship-windows.md"
+  },
+  {
+    "question": "Is drizzle-kit push safe to run against production?",
+    "answer": "it can drop a column you removed from the schema",
+    "file": "v18/clients/postgres-drizzle/SKILL.md"
+  },
+  {
+    "question": "drizzle-kit migrate fails on CREATE INDEX CONCURRENTLY",
+    "answer": "both use, runs every pending migration",
+    "file": "v18/clients/postgres-drizzle/references/migrations.md"
+  },
+  {
+    "question": "defineRelations is not exported by drizzle-orm",
+    "answer": "do not exist in the version a plain install gives you",
+    "file": "v18/clients/postgres-drizzle/SKILL.md"
+  },
+  {
+    "question": "My Drizzle transaction is not atomic",
+    "answer": "every query must use",
+    "file": "v18/clients/postgres-drizzle/SKILL.md"
+  },
+  {
+    "question": "Worker throws Cannot perform I/O on behalf of a different request",
+    "answer": "Cannot perform I/O on behalf of a different request",
+    "file": "v18/clients/postgres-cloudflare-hyperdrive/SKILL.md"
+  },
+  {
+    "question": "Permission checks return stale data behind Hyperdrive",
+    "answer": "HYPERDRIVE_FRESH",
+    "file": "v18/clients/postgres-cloudflare-hyperdrive/SKILL.md"
+  },
+  {
+    "question": "Everything in the database got slow at once, where do I even start?",
+    "answer": "a one-minute snapshot of the server",
+    "file": "v18/operations/postgres-troubleshooting/SKILL.md"
+  },
+  {
+    "question": "Postgres CPU is pinned at 100%, how do I find what is burning it?",
+    "answer": "High CPU means many sessions are running query work at once",
+    "file": "v18/operations/postgres-troubleshooting/SKILL.md"
+  },
+  {
+    "question": "Our server crashed with No space left on device and pg_wal is huge",
+    "answer": "never delete files in `pg_wal`",
+    "file": "v18/operations/postgres-troubleshooting/SKILL.md"
+  },
+  {
+    "question": "postgres won't start, it says lock file postmaster.pid already exists",
+    "answer": "remove the file only if that PID is not a postgres",
+    "file": "v18/operations/postgres-troubleshooting/SKILL.md"
+  },
+  {
+    "question": "I get no pg_hba.conf entry for host when connecting from my laptop",
+    "answer": "no `pg_hba.conf` line matches",
+    "file": "v18/operations/postgres-troubleshooting/SKILL.md"
+  },
+  {
+    "question": "A backend was terminated by signal 9 Killed and the whole server restarted",
+    "answer": "usually the Linux OOM killer",
+    "file": "v18/operations/postgres-troubleshooting/SKILL.md"
+  },
+  {
+    "question": "I inherited a database with no docs, how do I find out what's in it without breaking anything?",
+    "answer": "a read-only session with timeouts",
+    "file": "v18/sql/postgres-schema-exploration/SKILL.md"
+  },
+  {
+    "question": "How do I list all foreign keys so I can see how the tables join?",
+    "answer": "this is the entity-relationship diagram in text",
+    "file": "v18/sql/postgres-schema-exploration/SKILL.md"
+  },
+  {
+    "question": "My count from the orders table is lower than what the app shows",
+    "answer": "RLS filters rows for your role",
+    "file": "v18/sql/postgres-schema-exploration/SKILL.md"
+  },
+  {
+    "question": "How do I automatically set updated_at whenever a row changes?",
+    "answer": "Trigger for updated_at",
+    "file": "v18/sql/postgres-functions-triggers/SKILL.md"
+  },
+  {
+    "question": "I want an audit log of who changed what in the customers table",
+    "answer": "REFERENCING OLD TABLE AS old_rows NEW TABLE AS new_rows",
+    "file": "v18/sql/postgres-functions-triggers/SKILL.md"
+  },
+  {
+    "question": "My trigger errors with stack depth limit exceeded",
+    "answer": "trigger updates its own table and fires",
+    "file": "v18/sql/postgres-functions-triggers/SKILL.md"
+  },
+  {
+    "question": "Can I mark my function IMMUTABLE so I can use it in an index?",
+    "answer": "Never label a function `IMMUTABLE` to get it into an index",
+    "file": "v18/sql/postgres-functions-triggers/SKILL.md"
+  },
+  {
+    "question": "Find all stores within 5 km of the user's location",
+    "answer": "ST_DWithin(geog, $1::geography, 5000)",
+    "file": "v18/extensions/postgres-postgis/SKILL.md"
+  },
+  {
+    "question": "ST_Distance gives me 0.045 instead of kilometres",
+    "answer": "A `geometry` in SRID 4326 measures degrees",
+    "file": "v18/extensions/postgres-postgis/SKILL.md"
+  },
+  {
+    "question": "Which delivery zone polygon contains this address point?",
+    "answer": "Point in polygon: zones, regions and geofences",
+    "file": "v18/extensions/postgres-postgis/SKILL.md"
+  },
+  {
+    "question": "Should I store tenant_id on every table or give each customer its own schema?",
+    "answer": "Default to shared tables with a `tenant_id` column",
+    "file": "v18/sql/postgres-schema-design/SKILL.md"
+  },
+  {
+    "question": "How can I tell if my upsert inserted a new row or updated an existing one?",
+    "answer": "(old.id IS NULL) AS inserted",
+    "file": "v18/sql/postgres-sql-patterns/SKILL.md"
+  },
+  {
+    "question": "My dashboard aggregate query is too slow to run on every page load",
+    "answer": "REFRESH MATERIALIZED VIEW CONCURRENTLY",
+    "file": "v18/sql/postgres-sql-patterns/SKILL.md"
+  },
+  {
+    "question": "I need a row for every day in my chart even when there were no orders",
+    "answer": "generate_series(date '2026-10-01', date '2026-10-31', interval '1 day')",
+    "file": "v18/sql/postgres-sql-patterns/references/reporting.md"
+  },
+  {
+    "question": "How do I publish an event to Kafka only if the order transaction commits?",
+    "answer": "Transactional outbox",
+    "file": "v18/sql/postgres-transactions-locking/SKILL.md"
+  },
+  {
+    "question": "My embeddings are stale after people edit the documents",
+    "answer": "Embeddings go stale when the text they were made from changes",
+    "file": "v18/extensions/postgres-vector-search/SKILL.md"
+  },
+  {
+    "question": "CREATE EXTENSION fails on RDS with must be superuser",
+    "answer": "an admin role with most superuser rights",
+    "file": "v18/operations/postgres-operations/references/managed-services.md"
+  },
+  {
+    "question": "I changed one Cloud SQL flag and my other flags reset",
+    "answer": "replaces every flag set before",
+    "file": "v18/operations/postgres-operations/references/managed-services.md"
+  },
+  {
+    "question": "How do I rename a column with Drizzle without breaking the running app?",
+    "answer": "Expand and contract instead of a generated rename",
+    "file": "v18/clients/postgres-drizzle/references/migrations.md"
+  },
+  {
+    "question": "Can I read cookies inside a 'use cache' function with Drizzle in Next.js?",
+    "answer": "must be pure functions of their arguments",
+    "file": "v18/clients/postgres-drizzle/references/nextjs.md"
+  },
+  {
+    "question": "Drizzle on a Cloudflare Worker, how should I create the client?",
+    "answer": "a `pg` `Client` per request from the Hyperdrive binding",
+    "file": "v18/clients/postgres-drizzle/SKILL.md"
+  },
+  {
+    "question": "I ran apt purge on the Postgres 18 package on Ubuntu, did that wipe my databases?",
+    "answer": "deletes the data and configuration of every 18 cluster",
+    "file": "v18/operations/postgres-install/SKILL.md"
+  },
+  {
+    "question": "Which locale setting should a brand new cluster use so text sorting never shifts after an OS update?",
+    "answer": "code-point sort that never changes with glibc or ICU updates",
+    "file": "v18/operations/postgres-install/SKILL.md"
+  },
+  {
+    "question": "Postgres refuses to start after I added pg_cron next to pg_stat_statements with ALTER SYSTEM",
+    "answer": "a single quoted string with commas becomes one library name",
+    "file": "v18/extensions/postgres-extensions-install/SKILL.md"
+  },
+  {
+    "question": "Can the owner of a database who is not a superuser install pgcrypto or hstore?",
+    "answer": "can be created by any role with",
+    "file": "v18/extensions/postgres-extensions-install/SKILL.md"
+  },
+  {
+    "question": "My postgres 18 container exits right away when I mount my volume at /var/lib/postgresql/data like I did with 17",
+    "answer": "PGDATA and the volume in 18 images",
+    "file": "v18/operations/postgres-docker/SKILL.md"
+  },
+  {
+    "question": "Why does docker compose report the database healthy before my init SQL files have finished?",
+    "answer": "the temporary server used for",
+    "file": "v18/operations/postgres-docker/SKILL.md"
+  },
+  {
+    "question": "Should I use CloudNativePG, Crunchy or the Zalando operator for Postgres on k8s?",
+    "answer": "Operators compared: CloudNativePG, Crunchy PGO, Zalando",
+    "file": "v18/operations/postgres-kubernetes/SKILL.md"
+  },
+  {
+    "question": "My CNPG backup schedule 0 2 * * * never runs at 2 in the morning",
+    "answer": "has six fields with seconds",
+    "file": "v18/operations/postgres-kubernetes/SKILL.md"
+  },
+  {
+    "question": "How many huge pages should I reserve in sysctl for my shared_buffers?",
+    "answer": "shared_memory_size_in_huge_pages",
+    "file": "v18/performance/postgres-os-kernel-tuning/SKILL.md"
+  },
+  {
+    "question": "The Linux OOM killer took out the main postgres process last night, how do I protect it?",
+    "answer": "Keep the postmaster out of the OOM killer's reach",
+    "file": "v18/performance/postgres-os-kernel-tuning/SKILL.md"
+  },
+  {
+    "question": "Why won't Postgres let me detach an old month without blocking when the table also has a catch-all partition?",
+    "answer": "is refused while a default partition exists",
+    "file": "v18/performance/postgres-partitioning/SKILL.md"
+  },
+  {
+    "question": "Our job creates next month's partition but inserts just after midnight UTC fail with no partition found, why?",
+    "answer": "Write every bound with an explicit offset",
+    "file": "v18/performance/postgres-partitioning/SKILL.md"
+  },
+  {
+    "question": "Behind PgBouncer some requests return another customer's rows; how should the app pass the current tenant to the database?",
+    "answer": "set_config(name, value, true)",
+    "file": "v18/sql/postgres-multitenancy/SKILL.md"
+  },
+  {
+    "question": "Looking up users by lowercase email got slow after we turned on row-level security, how do I get the index used again?",
+    "answer": "A stored generated column",
+    "file": "v18/sql/postgres-multitenancy/SKILL.md"
+  },
+  {
+    "question": "I added a new worker to my Citus cluster and the shard move job never finishes",
+    "answer": "for the default transfer mode",
+    "file": "v18/extensions/postgres-citus-sharding/SKILL.md"
+  },
+  {
+    "question": "Do I really need to shard my Postgres database or are there simpler options first?",
+    "answer": "Shard last",
+    "file": "v18/extensions/postgres-citus-sharding/SKILL.md"
+  },
+  {
+    "question": "How long until Patroni promotes a replica when the primary machine dies suddenly?",
+    "answer": "new leader after 22 s",
+    "file": "v18/operations/postgres-patroni-ha/SKILL.md"
+  },
+  {
+    "question": "Patroni refuses to start and says it can't find a suitable configuration store, listing only consul and kubernetes",
+    "answer": "python3-etcd",
+    "file": "v18/operations/postgres-patroni-ha/SKILL.md"
+  },
+  {
+    "question": "pg_upgrade from 17 stops right away saying the old cluster has no checksums but the new one does",
+    "answer": "--no-data-checksums",
+    "file": "v18/operations/postgres-zero-downtime-upgrades/SKILL.md"
+  },
+  {
+    "question": "We switched the app to the upgraded server built with logical replication and now inserts fail with duplicate key errors",
+    "answer": "Sequences were not synced",
+    "file": "v18/operations/postgres-zero-downtime-upgrades/SKILL.md"
+  },
+  {
+    "question": "VACUUM runs on my table but the verbose output says thousands of rows can't be cleaned up yet. What is stopping it?",
+    "answer": "dead but not yet removable",
+    "file": "v18/performance/postgres-vacuum-bloat/SKILL.md"
+  },
+  {
+    "question": "How do I get frequent updates to stay on the same page so they stop adding index entries?",
+    "answer": "fillfactor = 85",
+    "file": "v18/performance/postgres-vacuum-bloat/SKILL.md"
+  },
+  {
+    "question": "Which postgres_exporter collectors do I have to switch on myself to get query and checkpoint metrics?",
+    "answer": "off by default in 0.20.1",
+    "file": "v18/operations/postgres-monitoring-observability/SKILL.md"
+  },
+  {
+    "question": "Our Grafana panels for WAL writes went empty after we moved the database to Postgres 18. Why?",
+    "answer": "Dashboards broke after the upgrade to 18",
+    "file": "v18/operations/postgres-monitoring-observability/SKILL.md"
+  },
+  {
+    "question": "My migration script printed an error in the CI log but the job still went green. How do I make psql fail the build?",
+    "answer": "psql continued and exited 0",
+    "file": "v18/operations/postgres-psql-cli/SKILL.md"
+  },
+  {
+    "question": "Can I create a prepared statement with a name and execute it several times from psql, like a driver does?",
+    "answer": "named prepared statement",
+    "file": "v18/operations/postgres-psql-cli/SKILL.md"
+  },
+  {
+    "question": "Should our apps use sslrootcert=system when the database certificate comes from our own internal CA?",
+    "answer": "with a private CA it fails",
+    "file": "v18/security/postgres-encryption-tls/SKILL.md"
+  },
+  {
+    "question": "If I encrypt a column with pgcrypto, can the DBA still read the data?",
+    "answer": "not against a superuser",
+    "file": "v18/security/postgres-encryption-tls/SKILL.md"
+  },
+  {
+    "question": "I only want audit entries when someone reads the card number column, not for every SELECT. How?",
+    "answer": "granted to the audit role",
+    "file": "v18/security/postgres-auditing-compliance/SKILL.md"
+  },
+  {
+    "question": "We restored an old backup and customers who had asked to be forgotten were back in the database. What did we miss?",
+    "answer": "The erasure ledger was not replayed",
+    "file": "v18/security/postgres-auditing-compliance/SKILL.md"
+  },
+  {
+    "question": "What is the cheapest way to throw away last month's sensor readings without a giant DELETE that bloats the table?",
+    "answer": "Retention removes whole partitions",
+    "file": "v18/extensions/postgres-timeseries/SKILL.md"
+  },
+  {
+    "question": "Which licence do TimescaleDB compression and continuous aggregates fall under, and can I resell them as a hosted database?",
+    "answer": "Tiger Data License (TSL)",
+    "file": "v18/extensions/postgres-timeseries/SKILL.md"
+  },
+  {
+    "question": "A slow background task got picked up by a second worker while the first was still running it. How do I keep the job claimed?",
+    "answer": "A heartbeat extends the lease",
+    "file": "v18/sql/postgres-queues-jobs/SKILL.md"
+  },
+  {
+    "question": "How big can the message I send with pg_notify be?",
+    "answer": "Payload under 8000 bytes",
+    "file": "v18/sql/postgres-queues-jobs/SKILL.md"
+  },
+  {
+    "question": "After the 18.6 minor update my wal2json consumer fails with 'may not be used as an output plugin'. What changed?",
+    "answer": "output_plugin_libraries",
+    "file": "v18/operations/postgres-cdc-logical-decoding/SKILL.md"
+  },
+  {
+    "question": "Why do my application's UPDATE statements fail right after I created a publication with a WHERE filter for Debezium?",
+    "answer": "is not part of the replica identity",
+    "file": "v18/operations/postgres-cdc-logical-decoding/SKILL.md"
+  },
+  {
+    "question": "Can a foreign server log in to the other Postgres without keeping a plain password in the user mapping?",
+    "answer": "SCRAM pass-through",
+    "file": "v18/extensions/postgres-fdw-federation/SKILL.md"
+  },
+  {
+    "question": "Inserting twenty thousand rows into a remote table through a foreign table takes ages. What do I change?",
+    "answer": "batch_size",
+    "file": "v18/extensions/postgres-fdw-federation/SKILL.md"
+  },
+  {
+    "question": "How can a CSV import skip lines with garbage in a number column instead of aborting the whole file?",
+    "answer": "ON_ERROR ignore",
+    "file": "v18/performance/postgres-bulk-load-etl/SKILL.md"
+  },
+  {
+    "question": "For applying a staged daily feed, is MERGE slower than insert with on conflict?",
+    "answer": "`MERGE` 10.4 s",
+    "file": "v18/performance/postgres-bulk-load-etl/SKILL.md"
+  },
+  {
+    "question": "How do I stop two people from booking the same meeting room for overlapping times?",
+    "answer": "EXCLUDE USING gist (room_id WITH =, during WITH &&)",
+    "file": "v18/sql/postgres-constraints-integrity/SKILL.md"
+  },
+  {
+    "question": "I need to make a column required on a huge table without locking it for minutes. What is the Postgres 18 way?",
+    "answer": "NOT NULL customer_id NOT VALID",
+    "file": "v18/sql/postgres-constraints-integrity/SKILL.md"
+  },
+  {
+    "question": "My script ended up talking to a different database because of something set in my shell. How do I prevent that?",
+    "answer": "A tool that must reach one specific database removes every",
+    "file": "v18/clients/postgres-libpq-protocol/SKILL.md"
+  },
+  {
+    "question": "I list two database servers in the connection string; how do I make sure writes always go to the primary?",
+    "answer": "target_session_attrs=read-write",
+    "file": "v18/clients/postgres-libpq-protocol/SKILL.md"
+  },
+  {
+    "question": "How do I ship version 1.1 of my own extension so existing installs can move up from 1.0?",
+    "answer": "slugify--1.0--1.1.sql",
+    "file": "v18/extensions/postgres-extension-development/SKILL.md"
+  },
+  {
+    "question": "From C code, how do I count every query the server finishes and keep that number in shared memory?",
+    "answer": "ExecutorEnd_hook",
+    "file": "v18/extensions/postgres-extension-development/SKILL.md"
+  },
+  {
+    "question": "Our test suite is slow because each test runs all migrations again. How do I get a fresh database per test quickly?",
+    "answer": "file_copy_method = clone",
+    "file": "v18/sql/postgres-testing-ci/SKILL.md"
+  },
+  {
+    "question": "CI is green but pg_prove did not actually run any of my SQL test files. Why?",
+    "answer": "Result: NOTESTS",
+    "file": "v18/sql/postgres-testing-ci/SKILL.md"
+  },
+  {
+    "question": "pg_upgrade from 17 to 18 refuses to run and mentions checksums. What do I do?",
+    "answer": "old cluster does not use data checksums but the new one does",
+    "file": "v18/operations/postgres-pg18-features/SKILL.md"
+  },
+  {
+    "question": "Can a single UPDATE in Postgres 18 give me both the value before and the value after the change?",
+    "answer": "RETURNING old.qty AS before, new.qty AS after",
+    "file": "v18/operations/postgres-pg18-features/SKILL.md"
+  },
+  {
+    "question": "After our database restarted, the first requests failed because the Python pool handed out dead connections. How do I make the pool test a connection before giving it to me?",
+    "answer": "check=ConnectionPool.check_connection",
+    "file": "v18/python/postgres-python-psycopg/SKILL.md"
+  },
+  {
+    "question": "psycopg throws a syntax error when I pass the timeout value as a parameter to SET statement_timeout. What should I write instead?",
+    "answer": "set_config('statement_timeout', %s, false)",
+    "file": "v18/python/postgres-python-psycopg/SKILL.md"
+  },
+  {
+    "question": "Listing 50 customers with their orders in SQLAlchemy fires one query per customer. Which loader option fixes that?",
+    "answer": "selectinload",
+    "file": "v18/python/postgres-python-sqlalchemy/SKILL.md"
+  },
+  {
+    "question": "Two developers each added an Alembic migration and now upgrade fails saying there are multiple head revisions. How do I combine them?",
+    "answer": "alembic merge heads",
+    "file": "v18/python/postgres-python-sqlalchemy/references/alembic.md"
+  },
+  {
+    "question": "Behind PgBouncer my asyncpg service randomly fails with prepared statement __asyncpg_stmt does not exist. What setting stops that?",
+    "answer": "statement_cache_size=0",
+    "file": "v18/python/postgres-python-asyncpg/SKILL.md"
+  },
+  {
+    "question": "With asyncpg my jsonb columns come back as plain strings instead of dicts. How do I get Python objects?",
+    "answer": "set_type_codec",
+    "file": "v18/python/postgres-python-asyncpg/SKILL.md"
+  },
+  {
+    "question": "How do I switch on the connection pool that Django has built in for PostgreSQL?",
+    "answer": "\"pool\": True",
+    "file": "v18/python/postgres-python-django/SKILL.md"
+  },
+  {
+    "question": "Which Django migration operation builds an index on a big table without blocking writes?",
+    "answer": "AddIndexConcurrently",
+    "file": "v18/python/postgres-python-django/SKILL.md"
+  },
+  {
+    "question": "pandas to_sql with method multi crashes complaining about the number of query parameters. How many rows per chunk can I send?",
+    "answer": "below 65,535",
+    "file": "v18/python/postgres-python-data/SKILL.md"
+  },
+  {
+    "question": "From Python, how can I dump a Postgres table to a Parquet file for analysts?",
+    "answer": "FORMAT parquet",
+    "file": "v18/python/postgres-python-data/SKILL.md"
+  },
+  {
+    "question": "My Node.js app gets bigint ids back from Postgres as strings, how do I turn them into real BigInt values with the pg library?",
+    "answer": "pg.types.setTypeParser(pg.types.builtins.INT8",
+    "file": "v18/clients/postgres-node-typescript/SKILL.md"
+  },
+  {
+    "question": "Does sslmode=require in postgres.js actually verify the database server's certificate?",
+    "answer": "as encrypt without checking the",
+    "file": "v18/clients/postgres-node-typescript/SKILL.md"
+  },
+  {
+    "question": "Our Go service using pgx gets prepared statement already exists errors behind PgBouncer, what setting fixes it?",
+    "answer": "default_query_exec_mode=exec",
+    "file": "v18/clients/postgres-go-pgx/SKILL.md"
+  },
+  {
+    "question": "When a Go request context times out, how do I make pgx ask Postgres to cancel the query instead of just dropping the connection?",
+    "answer": "CancelRequestContextWatcherHandler",
+    "file": "v18/clients/postgres-go-pgx/SKILL.md"
+  },
+  {
+    "question": "Spring Boot startup hangs forever on a Flyway migration that builds an index concurrently, how do I fix it?",
+    "answer": "spring.flyway.postgresql.transactional-lock=false",
+    "file": "v18/clients/postgres-java-jdbc/SKILL.md"
+  },
+  {
+    "question": "Hibernate fails at startup saying the sequence increment size in the entity mapping does not match the database",
+    "answer": "Hibernate refuses to start",
+    "file": "v18/clients/postgres-java-jdbc/SKILL.md"
+  },
+  {
+    "question": "My C# code crashes when I save DateTime.Now into a timestamptz column with Npgsql, why?",
+    "answer": "only UTC is supported",
+    "file": "v18/clients/postgres-dotnet-npgsql/SKILL.md"
+  },
+  {
+    "question": "What is the fastest way to insert a hundred thousand rows from a .NET app into Postgres?",
+    "answer": "BeginBinaryImportAsync",
+    "file": "v18/clients/postgres-dotnet-npgsql/SKILL.md"
+  },
+  {
+    "question": "Our Rust CI has no database, so the sqlx macros won't compile there. How do I build against the saved query data?",
+    "answer": "SQLX_OFFLINE=true",
+    "file": "v18/clients/postgres-rust-sqlx/SKILL.md"
+  },
+  {
+    "question": "My tokio service never exits after I call close on the sqlx pool. Why does shutdown hang?",
+    "answer": "waits for every checked-out connection",
+    "file": "v18/clients/postgres-rust-sqlx/SKILL.md"
+  },
+  {
+    "question": "A PHP worker eats gigabytes on one big SELECT even though memory_limit is small. How do I stream the rows?",
+    "answer": "PDO::ATTR_PREFETCH => 0",
+    "file": "v18/clients/postgres-php-laravel/SKILL.md"
+  },
+  {
+    "question": "Laravel upsert fails with 42P10 because my unique index on email has a WHERE clause. What do I write instead?",
+    "answer": "DB::affectingStatement",
+    "file": "v18/clients/postgres-php-laravel/references/laravel.md"
+  },
+  {
+    "question": "Rails migrations through PgBouncer fail with failed to release advisory lock. Which setting fixes it?",
+    "answer": "advisory_locks: false",
+    "file": "v18/clients/postgres-ruby-rails/SKILL.md"
+  },
+  {
+    "question": "After switching Rails to structure.sql the Solid Queue database has no tables after db:prepare. Why?",
+    "answer": "queue_structure.sql",
+    "file": "v18/clients/postgres-ruby-rails/SKILL.md"
+  },
+  {
+    "question": "Why does my LEFT JOIN lose the customers without orders once I filter on the order status?",
+    "answer": "turns the join into an inner join",
+    "file": "v18/sql/postgres-sql-fundamentals/SKILL.md"
+  },
+  {
+    "question": "Why can't I use the name I gave a computed column in my WHERE clause?",
+    "answer": "the alias is computed later",
+    "file": "v18/sql/postgres-sql-fundamentals/SKILL.md"
+  },
+  {
+    "question": "I compare doc->>'type' with a string and my GIN index on the jsonb column is ignored, why?",
+    "answer": "can never use GIN",
+    "file": "v18/sql/postgres-sql-json/SKILL.md"
+  },
+  {
+    "question": "How do I expand an array of items inside a JSON document into rows with typed columns in a query?",
+    "answer": "turns a JSON document into a relational table",
+    "file": "v18/sql/postgres-sql-json/SKILL.md"
+  },
+  {
+    "question": "I wrote AT TIME ZONE 'UTC+3' and the result moved three hours the wrong way. What happened?",
+    "answer": "positive sign means west of Greenwich",
+    "file": "v18/sql/postgres-sql-dates-times/SKILL.md"
+  },
+  {
+    "question": "How can I index a timestamptz column by calendar day so per-day lookups are fast?",
+    "answer": "that names the zone",
+    "file": "v18/sql/postgres-sql-dates-times/SKILL.md"
+  },
+  {
+    "question": "What does Postgres do on startup after the machine lost power, to get committed data back?",
+    "answer": "replaying WAL from the last checkpoint",
+    "file": "v18/performance/postgres-internals-architecture/SKILL.md"
+  },
+  {
+    "question": "Why doesn't one huge report scanning a big table throw everything else out of the cache?",
+    "answer": "uses a small ring of buffers",
+    "file": "v18/performance/postgres-internals-architecture/SKILL.md"
+  },
+  {
+    "question": "My index-only scan still visits the table for most rows. What decides that?",
+    "answer": "Only vacuum sets them",
+    "file": "v18/performance/postgres-internals-mvcc-storage/SKILL.md"
+  },
+  {
+    "question": "When can an UPDATE skip writing new index entries?",
+    "answer": "no indexed column changes and the new version fits on the same page",
+    "file": "v18/performance/postgres-internals-mvcc-storage/SKILL.md"
+  },
+  {
+    "question": "The planner expects about 200 rows for my zip and city filter but 2000 come back. Why so low?",
+    "answer": "as if columns were independent",
+    "file": "v18/performance/postgres-internals-planner/SKILL.md"
+  },
+  {
+    "question": "My prepared query got a different, slower plan after a few runs. Why?",
+    "answer": "for the first five executions (custom plans)",
+    "file": "v18/performance/postgres-internals-planner/SKILL.md"
+  },
+  {
+    "question": "My UPDATE says 0 rows changed with row-level security on, but there is no error. Why?",
+    "answer": "Row-level security fails quietly",
+    "file": "v18/security/postgres-security-roles/references/row-level-security.md"
+  },
+  {
+    "question": "Why does INSERT work under RLS but INSERT ... RETURNING fails?",
+    "answer": "even though the plain insert works",
+    "file": "v18/security/postgres-security-roles/references/row-level-security.md"
+  },
+  {
+    "question": "If my RLS update policy has no WITH CHECK, can a user give their row to someone else?",
+    "answer": "reuses its `USING` for the new row",
+    "file": "v18/security/postgres-security-roles/references/row-level-security.md"
+  },
+  {
+    "question": "current_setting for my tenant id throws invalid input syntax for type bigint on a pooled connection",
+    "answer": "the same call returns an empty string",
+    "file": "v18/security/postgres-security-roles/references/row-level-security.md"
+  },
+  {
+    "question": "How do I add a constraint in a migration only if it isn't there yet?",
+    "answer": "checks the catalog first, by table and name together",
+    "file": "v18/sql/postgres-schema-migrations/SKILL.md"
+  },
+  {
+    "question": "CREATE UNIQUE INDEX IF NOT EXISTS succeeded but duplicates still get in after a failed concurrent build",
+    "answer": "no working index behind it",
+    "file": "v18/sql/postgres-schema-migrations/SKILL.md"
+  },
+  {
+    "question": "How should a deploy script retry a migration that timed out waiting for a lock?",
+    "answer": "retries only on `55P03`",
+    "file": "v18/sql/postgres-schema-migrations/SKILL.md"
+  },
+  {
+    "question": "Before adding a foreign key, how do I find the rows that would break it?",
+    "answer": "make the step fail",
+    "file": "v18/sql/postgres-schema-migrations/SKILL.md"
+  },
+  {
+    "question": "We dropped a column with personal data, is it gone from disk?",
+    "answer": "only hides the column",
+    "file": "v18/sql/postgres-schema-migrations/SKILL.md"
+  },
+  {
+    "question": "VALIDATE CONSTRAINT is stuck and nothing in the app is blocking it",
+    "answer": "(to prevent wraparound)",
+    "file": "v18/sql/postgres-schema-migrations/SKILL.md"
+  },
+  {
+    "question": "Does a plain REINDEX stop people reading the table?",
+    "answer": "takes `SHARE` on the table and `ACCESS EXCLUSIVE` on the index itself",
+    "file": "v18/sql/postgres-schema-migrations/references/ddl-lock-levels.md"
+  },
+  {
+    "question": "How do I list all the partitions under a partitioned table?",
+    "answer": "pg_partition_tree('app.events')",
+    "file": "v18/sql/postgres-schema-exploration/SKILL.md"
+  },
+  {
+    "question": "How can I tell which objects belong to an extension and not the app?",
+    "answer": "deptype 'e'",
+    "file": "v18/sql/postgres-schema-exploration/SKILL.md"
+  },
+  {
+    "question": "Can I print the connection options of a foreign server when documenting a database?",
+    "answer": "report names unless the values are",
+    "file": "v18/sql/postgres-schema-exploration/SKILL.md"
+  },
+  {
+    "question": "pgvector returns only 40 rows when I ask for LIMIT 100",
+    "answer": "caps how many rows one index scan can return",
+    "file": "v18/extensions/postgres-vector-search/SKILL.md"
+  },
+  {
+    "question": "Some rows with embeddings never show up in cosine search",
+    "answer": "returns `NaN` for it",
+    "file": "v18/extensions/postgres-vector-search/SKILL.md"
+  },
+  {
+    "question": "Vector search got slow but the CPU is idle",
+    "answer": "no longer fits in memory",
+    "file": "v18/extensions/postgres-vector-search/SKILL.md"
+  },
+  {
+    "question": "How do I get real BM25 ranking inside Postgres for hybrid search?",
+    "answer": "`pg_textsearch` uses a `bm25` index",
+    "file": "v18/extensions/postgres-vector-search/references/hybrid-search.md"
+  },
+  {
+    "question": "How do I filter vector search by category when the index doesn't fit in memory?",
+    "answer": "filters by labels inside the index",
+    "file": "v18/extensions/postgres-vector-search/references/hybrid-search.md"
+  },
+  {
+    "question": "How do I turn a table that already has rows into a TimescaleDB hypertable?",
+    "answer": "refuses a table that has rows",
+    "file": "v18/extensions/postgres-timeseries/references/timescaledb.md"
+  },
+  {
+    "question": "Can a hypertable have a foreign key to another hypertable?",
+    "answer": "hypertables cannot be used as foreign key references of hypertables",
+    "file": "v18/extensions/postgres-timeseries/references/timescaledb.md"
+  },
+  {
+    "question": "How do I compute p95 from TimescaleDB rollups?",
+    "answer": "combine hours with `rollup()`",
+    "file": "v18/extensions/postgres-timeseries/references/timescaledb.md"
+  },
+  {
+    "question": "After upgrading postgres.js I get function date_trunc(unknown, unknown) is not unique",
+    "answer": "Version 4 no longer types",
+    "file": "v18/clients/postgres-node-typescript/SKILL.md"
+  },
+  {
+    "question": "sql.array throws ARRAY_REMOVED, what do I use now?",
+    "answer": "pass the array with a cast",
+    "file": "v18/clients/postgres-node-typescript/SKILL.md"
+  },
+  {
+    "question": "Why can the Supabase secret key read rows that policies should hide?",
+    "answer": "`service_role` has `BYPASSRLS`",
+    "file": "v18/operations/postgres-operations/references/managed-services.md"
+  },
+  {
+    "question": "Is raw_user_meta_data safe to use in a Supabase RLS policy?",
+    "answer": "never authorize from",
+    "file": "v18/security/postgres-security-roles/references/row-level-security.md"
+  }
+]

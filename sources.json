@@ -1,0 +1,277 @@
+{
+  "sources": [
+    {
+      "publisher": "Supabase",
+      "from": "https://github.com/supabase/agent-skills/tree/c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "license": "MIT",
+      "read": "2026-10-30",
+      "informed": [
+        "docs/v18/sql/postgres-schema-migrations/SKILL.md",
+        "docs/v18/security/postgres-security-roles/references/row-level-security.md",
+        "docs/v18/operations/postgres-operations/references/managed-services.md"
+      ],
+      "copied": false,
+      "note": "A company built on Postgres, not the PostgreSQL project. Read: both skills, supabase and supabase-postgres-best-practices, with their references."
+    },
+    {
+      "publisher": "Timescale, Inc., d/b/a Tiger Data",
+      "from": "https://github.com/timescale/pg-aiguide/tree/5d3b76b5c986693b30753828b404aa66ba34c31a",
+      "commit": "5d3b76b5c986693b30753828b404aa66ba34c31a",
+      "license": "Apache-2.0",
+      "read": "2026-10-30",
+      "informed": [
+        "docs/v18/sql/postgres-schema-migrations/SKILL.md",
+        "docs/v18/sql/postgres-schema-migrations/references/ddl-lock-levels.md",
+        "docs/v18/sql/postgres-schema-exploration/SKILL.md",
+        "docs/v18/extensions/postgres-vector-search/SKILL.md",
+        "docs/v18/extensions/postgres-vector-search/references/hybrid-search.md",
+        "docs/v18/extensions/postgres-timeseries/references/timescaledb.md"
+      ],
+      "copied": false,
+      "note": "A company built on Postgres, not the PostgreSQL project. Read: every skill under skills/ and rules/postgres-best-practices.mdc."
+    },
+    {
+      "publisher": "The PostgreSQL Global Development Group",
+      "from": "https://github.com/postgres/postgres/tree/724edf9bde9d356724ad384a2e196edc3c9f80f7/doc/src/sgml",
+      "commit": "724edf9bde9d356724ad384a2e196edc3c9f80f7",
+      "license": "PostgreSQL",
+      "read": "2026-10-30",
+      "informed": [
+        "docs/v18/security/postgres-security-roles/references/row-level-security.md",
+        "docs/v18/sql/postgres-schema-migrations/SKILL.md",
+        "docs/v18/sql/postgres-schema-migrations/references/ddl-lock-levels.md",
+        "docs/v18/sql/postgres-schema-exploration/SKILL.md"
+      ],
+      "copied": false,
+      "note": "PostgreSQL 18.6 documentation source at tag REL_18_6; the authority on facts. Read: the CREATE POLICY, ALTER TABLE, REINDEX, system catalog and locking chapters, plus a whole-tree overlap check."
+    },
+    {
+      "publisher": "pgvector contributors",
+      "from": "https://github.com/pgvector/pgvector/tree/f37c13f68b57d2c3472b2214fbcff699d6d34876",
+      "commit": "f37c13f68b57d2c3472b2214fbcff699d6d34876",
+      "license": "PostgreSQL",
+      "read": "2026-10-30",
+      "informed": [
+        "docs/v18/extensions/postgres-vector-search/SKILL.md",
+        "docs/v18/extensions/postgres-vector-search/references/hybrid-search.md"
+      ],
+      "copied": false,
+      "note": "README and CHANGELOG at tag v0.8.7."
+    },
+    {
+      "publisher": "Timescale, Inc., d/b/a Tiger Data",
+      "from": "https://github.com/timescale/pg_textsearch/tree/fa142d049d08eac45a263f5abc250c8877ae076e",
+      "commit": "fa142d049d08eac45a263f5abc250c8877ae076e",
+      "license": "PostgreSQL",
+      "read": "2026-10-30",
+      "informed": [
+        "docs/v18/extensions/postgres-vector-search/references/hybrid-search.md",
+        "docs/v18/sql/postgres-full-text-search/SKILL.md"
+      ],
+      "copied": false,
+      "note": "README at tag v1.5.1."
+    },
+    {
+      "publisher": "Timescale, Inc., d/b/a Tiger Data",
+      "from": "https://github.com/timescale/pgvectorscale/tree/9d9851ce9966f01cdbbdc80e510d4938e3cd26bf",
+      "commit": "9d9851ce9966f01cdbbdc80e510d4938e3cd26bf",
+      "license": "PostgreSQL",
+      "read": "2026-10-30",
+      "informed": [
+        "docs/v18/extensions/postgres-vector-search/references/hybrid-search.md"
+      ],
+      "copied": false,
+      "note": "README at tag 0.9.1."
+    },
+    {
+      "publisher": "Rasmus Porsager and contributors",
+      "from": "https://github.com/porsager/postgres/tree/570be764d96c8c13e6a1a262103bf60974571b67",
+      "commit": "570be764d96c8c13e6a1a262103bf60974571b67",
+      "license": "Unlicense",
+      "read": "2026-10-30",
+      "informed": [
+        "docs/v18/clients/postgres-node-typescript/SKILL.md",
+        "docs/v18/clients/postgres-app-drivers/references/node.md"
+      ],
+      "copied": false,
+      "note": "README and release notes at tag v4.0.0."
+    },
+    {
+      "publisher": "The PostGIS project",
+      "from": "https://github.com/postgis/postgis/tree/1fdbb1cbb0e076816be06c401c5a5a2cf2c487f9",
+      "commit": "1fdbb1cbb0e076816be06c401c5a5a2cf2c487f9",
+      "license": "GPL-2.0-or-later",
+      "read": "2026-10-30",
+      "informed": [
+        "docs/v18/extensions/postgres-postgis/SKILL.md"
+      ],
+      "copied": false,
+      "note": "NEWS at tag 3.7.0; facts only."
+    },
+    {
+      "publisher": "Supabase",
+      "from": "https://github.com/supabase/supabase/tree/552312507f38f1852db23b292e023c36cddc40f3/apps/docs/content/guides",
+      "commit": "552312507f38f1852db23b292e023c36cddc40f3",
+      "license": "Apache-2.0",
+      "read": "2026-10-30",
+      "informed": [
+        "docs/v18/security/postgres-security-roles/references/row-level-security.md",
+        "docs/v18/operations/postgres-operations/references/managed-services.md"
+      ],
+      "copied": false,
+      "note": "Two pages: database/postgres/row-level-security.mdx and api/securing-your-api.mdx."
+    },
+    {
+      "publisher": "Timescale, Inc., d/b/a Tiger Data",
+      "from": "https://www.tigerdata.com/docs/reference/timescaledb/hypertables/create_hypertable",
+      "commit": null,
+      "license": "not stated on the page; facts only",
+      "read": "2026-10-30",
+      "informed": [
+        "docs/v18/extensions/postgres-timeseries/references/timescaledb.md"
+      ],
+      "copied": false,
+      "note": "A web page with no commit. Its statement on foreign keys differed from a run on TimescaleDB 2.31; the skill states what was measured."
+    },
+    {
+      "publisher": "The PostgreSQL Global Development Group",
+      "from": "https://www.postgresql.org/support/versioning/",
+      "commit": null,
+      "license": "PostgreSQL",
+      "read": "2026-10-30",
+      "informed": [
+        "versions.json"
+      ],
+      "copied": false,
+      "note": "A web page with no commit: supported versions and end-of-life dates."
+    },
+    {
+      "from": "https://github.com/pgbouncer/pgbouncer/tree/bb60c8c94bd6e9fb48f6fcf62cc1ec649b3ab6c6/doc",
+      "commit": "bb60c8c94bd6e9fb48f6fcf62cc1ec649b3ab6c6",
+      "license": "ISC",
+      "read": "2026-10-31",
+      "informed": [
+        "docs/v18/performance/postgres-connection-pooling/references/pgbouncer-config.md"
+      ],
+      "copied": false,
+      "files": [
+        "doc/config.md",
+        "NEWS.md",
+        "lib/usual/cfparser.c"
+      ]
+    },
+    {
+      "from": "https://github.com/pgbackrest/pgbackrest/tree/840ffebf23a34342d849af7a9aebee97da94b335/src/common",
+      "commit": "840ffebf23a34342d849af7a9aebee97da94b335",
+      "license": "MIT",
+      "read": "2026-10-31",
+      "informed": [
+        "docs/v18/operations/postgres-backup-restore/references/pgbackrest.md"
+      ],
+      "copied": false,
+      "files": [
+        "src/common/ini.c"
+      ]
+    },
+    {
+      "from": "https://developers.cloudflare.com/hyperdrive/",
+      "license": "CC-BY-4.0 (docs); facts only",
+      "read": "2026-10-31",
+      "informed": [
+        "docs/v18/clients/postgres-cloudflare-hyperdrive/SKILL.md",
+        "docs/v18/clients/postgres-drizzle/references/nextjs.md"
+      ],
+      "copied": false
+    },
+    {
+      "from": "https://opennext.js.org/cloudflare/howtos/db",
+      "license": "not stated on the page; facts only",
+      "read": "2026-10-31",
+      "informed": [
+        "docs/v18/clients/postgres-cloudflare-hyperdrive/SKILL.md",
+        "docs/v18/clients/postgres-drizzle/references/nextjs.md"
+      ],
+      "copied": false
+    },
+    {
+      "from": "https://www.npgsql.org/doc/types/basic.html",
+      "license": "PostgreSQL",
+      "read": "2026-10-31",
+      "informed": [
+        "docs/v18/clients/postgres-dotnet-npgsql/SKILL.md"
+      ],
+      "copied": false
+    },
+    {
+      "from": "https://postgis.net/2026/10/PostGIS-3.7.0/",
+      "license": "CC BY-SA 3.0 (site); facts only",
+      "read": "2026-10-31",
+      "informed": [
+        "docs/v18/extensions/postgres-extensions-install/references/extension-catalog.md"
+      ],
+      "copied": false
+    },
+    {
+      "publisher": "The CloudNativePG Contributors",
+      "from": "https://github.com/cloudnative-pg/cloudnative-pg/tree/2a35abb4628f209d149825ef3c38011e0701ff2f",
+      "commit": "2a35abb4628f209d149825ef3c38011e0701ff2f",
+      "license": "Apache-2.0",
+      "read": "2026-10-31",
+      "informed": [
+        "docs/v18/operations/postgres-kubernetes/SKILL.md",
+        "docs/v18/operations/postgres-kubernetes/references/cluster-manifests.md"
+      ],
+      "copied": false
+    },
+    {
+      "publisher": "The CloudNativePG Contributors",
+      "from": "https://github.com/cloudnative-pg/plugin-barman-cloud/tree/6216b7dd552f389952d3de77712d9522a79d9548",
+      "commit": "6216b7dd552f389952d3de77712d9522a79d9548",
+      "license": "Apache-2.0",
+      "read": "2026-10-31",
+      "informed": [
+        "docs/v18/operations/postgres-kubernetes/SKILL.md",
+        "docs/v18/operations/postgres-kubernetes/references/cluster-manifests.md"
+      ],
+      "copied": false,
+      "note": "Tag v0.15.1. Read: web/docs (installation, usage, retention, object stores)."
+    },
+    {
+      "publisher": "Crunchy Data Solutions, Inc.",
+      "from": "https://github.com/CrunchyData/postgres-operator/tree/0fbac3062d649b2b5fadde4e00f17bad250c0052",
+      "commit": "0fbac3062d649b2b5fadde4e00f17bad250c0052",
+      "license": "Apache-2.0",
+      "read": "2026-10-31",
+      "informed": [
+        "docs/v18/operations/postgres-kubernetes/SKILL.md"
+      ],
+      "copied": false,
+      "note": "Tag v6.0.3. Read: README and the PostgresCluster CRD versions. The operator's licence only; Crunchy's images have their own terms."
+    },
+    {
+      "publisher": "Zalando SE",
+      "from": "https://github.com/zalando/postgres-operator/tree/80b7a074ada5221dc5eeac487c19faf810eb9cfe",
+      "commit": "80b7a074ada5221dc5eeac487c19faf810eb9cfe",
+      "license": "MIT",
+      "read": "2026-10-31",
+      "informed": [
+        "docs/v18/operations/postgres-kubernetes/SKILL.md"
+      ],
+      "copied": false,
+      "note": "Tag v2.0.3. Read: README, minimal manifest, licence."
+    },
+    {
+      "publisher": "The CloudNativePG Contributors",
+      "from": "https://github.com/cloudnative-pg/postgres-containers/tree/c01b92e74c707bf91e7c133113c53590c40202a6",
+      "commit": "c01b92e74c707bf91e7c133113c53590c40202a6",
+      "license": "Apache-2.0",
+      "read": "2026-10-31",
+      "informed": [
+        "docs/v18/operations/postgres-kubernetes/SKILL.md"
+      ],
+      "copied": false,
+      "note": "Read: README (image flavours: minimal, standard, deprecated system)."
+    }
+  ]
+}
