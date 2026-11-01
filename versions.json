@@ -360,7 +360,8 @@
    "name": "riverqueue/river",
    "ecosystem": "github",
    "version": "0.50.0",
-   "checked": "2026-10-30"
+   "checked": "2026-10-30",
+   "held": "0.51.0 came out on 2026-11-01, after this version's text was built and tested; the skills teach 0.50 and move in the next version."
   },
   {
    "name": "flyway/flyway",

@@ -3,6 +3,7 @@
     "library.json",
     "ship.json",
     "README.md",
+    "CHANGES.md",
     "LICENSE",
     "NOTICE",
     "docs/**",
